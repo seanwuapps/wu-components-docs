@@ -8,7 +8,6 @@ import '@stencil/core';
 
 import '@stencil/router';
 import '@stencil/state-tunnel';
-import 'wu-components';
 import {
   MatchResults,
 } from '@stencil/router';
@@ -28,6 +27,23 @@ export namespace Components {
 
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
+
+  interface ComponentContent {
+    'name': string;
+  }
+  interface ComponentContentAttributes extends StencilHTMLAttributes {
+    'name'?: string;
+  }
+
+  interface ComponentPage {
+    'match': MatchResults;
+  }
+  interface ComponentPageAttributes extends StencilHTMLAttributes {
+    'match'?: MatchResults;
+  }
+
+  interface DocsMenu {}
+  interface DocsMenuAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
@@ -35,12 +51,18 @@ declare global {
     'AppHome': Components.AppHome;
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
+    'ComponentContent': Components.ComponentContent;
+    'ComponentPage': Components.ComponentPage;
+    'DocsMenu': Components.DocsMenu;
   }
 
   interface StencilIntrinsicElements {
     'app-home': Components.AppHomeAttributes;
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
+    'component-content': Components.ComponentContentAttributes;
+    'component-page': Components.ComponentPageAttributes;
+    'docs-menu': Components.DocsMenuAttributes;
   }
 
 
@@ -62,16 +84,40 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLComponentContentElement extends Components.ComponentContent, HTMLStencilElement {}
+  var HTMLComponentContentElement: {
+    prototype: HTMLComponentContentElement;
+    new (): HTMLComponentContentElement;
+  };
+
+  interface HTMLComponentPageElement extends Components.ComponentPage, HTMLStencilElement {}
+  var HTMLComponentPageElement: {
+    prototype: HTMLComponentPageElement;
+    new (): HTMLComponentPageElement;
+  };
+
+  interface HTMLDocsMenuElement extends Components.DocsMenu, HTMLStencilElement {}
+  var HTMLDocsMenuElement: {
+    prototype: HTMLDocsMenuElement;
+    new (): HTMLDocsMenuElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
+    'component-content': HTMLComponentContentElement
+    'component-page': HTMLComponentPageElement
+    'docs-menu': HTMLDocsMenuElement
   }
 
   interface ElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'component-content': HTMLComponentContentElement;
+    'component-page': HTMLComponentPageElement;
+    'docs-menu': HTMLDocsMenuElement;
   }
 
 

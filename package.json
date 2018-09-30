@@ -1,5 +1,5 @@
 {
-  "name": "@stencil/starter",
+  "name": "wu-components-docs",
   "private": true,
   "version": "0.0.1",
   "description": "Stencil App Starter",
@@ -12,7 +12,8 @@
   "dependencies": {
     "@stencil/core": "^0.12.4",
     "@stencil/router": "^0.2.6",
-    "wu-components": "file:../wu-components"
+    "@stencil/sass": "^0.1.1",
+    "material-icons": "^0.2.3"
   },
   "devDependencies": {
     "@types/jest": "^23.3.2",
@@ -40,5 +41,6 @@
       "json",
       "jsx"
     ]
-  }
+  },
+  "main": "index.js"
 }

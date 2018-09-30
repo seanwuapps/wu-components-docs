@@ -1,0 +1,13 @@
+.fade-in {
+  -webkit-animation: fade-in var(--slow);
+  animation: fade-in var(--slow);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
