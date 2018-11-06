@@ -16,7 +16,7 @@ export class AppRoot {
             </wu-col>
             <wu-col class="text-center">
               <h1>
-                <a href="/">Demo site</a>
+                <stencil-route-link url="/">Demo</stencil-route-link>
               </h1>
             </wu-col>
             <wu-col class="text-right">
@@ -39,7 +39,8 @@ export class AppRoot {
           <stencil-router>
             <stencil-route-switch scrollTopOffset={0}>
               <stencil-route url="/" component="app-home" exact={true} />
-              <stencil-route url="/profile/:name" component="app-profile" />
+              {/* <stencil-route url="/getting-started" component="" /> */}
+              <stencil-route url="/components" component="component-index" exact={true} />
               <stencil-route url="/component/:name" component="component-page" />
             </stencil-route-switch>
           </stencil-router>

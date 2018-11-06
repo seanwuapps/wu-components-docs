@@ -15,6 +15,7 @@ export class ComponentContent {
 
   @State()
   errorMsg: string = ''
+
   LOADING_TIMEOUT: number = 10000
   timeoutCounter: any
 
@@ -30,10 +31,18 @@ export class ComponentContent {
         if (res.ok) {
           return res.text()
         }
+        if (res.status === 404) {
+          console.log(404)
+          throw new Error('Page not found. :(')
+        }
+        throw new Error('Something went wrong.')
       })
-      .then(res => (this.documentContent = res))
-      .then(() => (this.isLoading = false))
+      .then(res => {
+        this.documentContent = res
+        this.cancelLoading()
+      })
       .catch(err => {
+        console.log(err)
         this.errorMsg = err
         this.cancelLoading()
       })
@@ -56,7 +65,7 @@ export class ComponentContent {
         ) : (
           <div innerHTML={this.documentContent} class="fade-in" />
         )}
-        {this.errorMsg.length ? <div class="error">{this.errorMsg}</div> : null}
+        {this.errorMsg.length ? <div class="text-danger">{this.errorMsg}</div> : null}
       </div>
     )
   }

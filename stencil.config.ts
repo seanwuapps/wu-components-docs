@@ -5,5 +5,11 @@ import { sass } from '@stencil/sass'
 export const config: Config = {
   globalStyle: 'src/global/app.css',
   plugins: [sass()],
-  copy: [{ src: 'doc-content' }]
+  copy: [{ src: 'doc-content' }],
+  outputTargets: [
+    {
+      type: 'www',
+      dir: '../wu-components/docs'
+    }
+  ]
 }

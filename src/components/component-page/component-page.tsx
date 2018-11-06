@@ -1,5 +1,6 @@
-import { Component, Prop } from '@stencil/core'
+import { Component, Prop, Watch, State } from '@stencil/core'
 import { MatchResults } from '@stencil/router'
+import { getComponent } from '../../utils/component-list'
 
 @Component({
   tag: 'component-page',
@@ -9,15 +10,32 @@ export class ComponentPage {
   @Prop()
   match: MatchResults
 
+  @State()
+  loadedComponent
+
   componentDidLoad() {
-    document.title = this.match.params.name ? this.match.params.name + ' | Wu Components' : 'Wu Components'
+    this.updateTitle()
+  }
+
+  @Watch('match')
+  updateTitle() {
+    const item = getComponent(this.match.params.name)
+    if (item) {
+      this.loadedComponent = item
+      document.title = item.name + ' | Wu Components'
+    }
+    document.title = 'Wu Components'
   }
 
   render() {
-    return (
+    return this.loadedComponent ? (
       <wu-page reflect-fixed-header>
-        <component-content name={this.match.params.name} />
+        <h2>{this.loadedComponent.name}</h2>
+        <p>{this.loadedComponent.description ? this.loadedComponent.description : null}</p>
+        <component-content name={this.loadedComponent.key} />
       </wu-page>
+    ) : (
+      <p>Component cannot be loaded.</p>
     )
   }
 }

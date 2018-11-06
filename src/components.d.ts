@@ -35,6 +35,9 @@ export namespace Components {
     'name'?: string;
   }
 
+  interface ComponentIndex {}
+  interface ComponentIndexAttributes extends StencilHTMLAttributes {}
+
   interface ComponentPage {
     'match': MatchResults;
   }
@@ -52,6 +55,7 @@ declare global {
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
     'ComponentContent': Components.ComponentContent;
+    'ComponentIndex': Components.ComponentIndex;
     'ComponentPage': Components.ComponentPage;
     'DocsMenu': Components.DocsMenu;
   }
@@ -61,6 +65,7 @@ declare global {
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
     'component-content': Components.ComponentContentAttributes;
+    'component-index': Components.ComponentIndexAttributes;
     'component-page': Components.ComponentPageAttributes;
     'docs-menu': Components.DocsMenuAttributes;
   }
@@ -90,6 +95,12 @@ declare global {
     new (): HTMLComponentContentElement;
   };
 
+  interface HTMLComponentIndexElement extends Components.ComponentIndex, HTMLStencilElement {}
+  var HTMLComponentIndexElement: {
+    prototype: HTMLComponentIndexElement;
+    new (): HTMLComponentIndexElement;
+  };
+
   interface HTMLComponentPageElement extends Components.ComponentPage, HTMLStencilElement {}
   var HTMLComponentPageElement: {
     prototype: HTMLComponentPageElement;
@@ -107,6 +118,7 @@ declare global {
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
     'component-content': HTMLComponentContentElement
+    'component-index': HTMLComponentIndexElement
     'component-page': HTMLComponentPageElement
     'docs-menu': HTMLDocsMenuElement
   }
@@ -116,6 +128,7 @@ declare global {
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
     'component-content': HTMLComponentContentElement;
+    'component-index': HTMLComponentIndexElement;
     'component-page': HTMLComponentPageElement;
     'docs-menu': HTMLDocsMenuElement;
   }

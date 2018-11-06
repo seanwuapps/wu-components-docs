@@ -1,5 +1,5 @@
 import { Component } from '@stencil/core'
-
+import { components } from '../../utils/component-list'
 @Component({
   tag: 'docs-menu'
 })
@@ -12,8 +12,6 @@ export class DocsMenu {
     }
   ]
 
-  components: Array<any> = ['wu-spinner', 'wu-button', 'wu-burger']
-
   render() {
     return (
       <wu-drawer-menu auto-close={true} id="menu" position="left">
@@ -23,61 +21,38 @@ export class DocsMenu {
         </wu-menu-header>
 
         <wu-menu-list>
-          <wu-menu-item>
+          <wu-menu-item theme="primary">
             <stencil-route-link url="/">
               <i class="material-icons">home</i> Home
             </stencil-route-link>
           </wu-menu-item>
+
           <wu-divider />
+
           <wu-menu-sub-heading>Components</wu-menu-sub-heading>
-          {this.components.map(component => {
+          {components.map(component => {
             return (
-              <wu-menu-item theme="primary">
-                <stencil-route-link url={'/component/' + component}>{component}</stencil-route-link>
+              <wu-menu-item theme="secondary">
+                <stencil-route-link url={'/component/' + component.key}>
+                  {component.name} &lt;
+                  {component.key}
+                  &gt;
+                </stencil-route-link>
               </wu-menu-item>
             )
           })}
-          <wu-menu-item theme="secondary">
-            <a href="#">
-              <i class="material-icons">star_rate</i>
-              Secondary
-            </a>
+
+          <wu-divider />
+
+          <wu-menu-sub-heading>Theming</wu-menu-sub-heading>
+          <wu-menu-item>
+            <stencil-route-link url={'/theming/themes'}>Themes</stencil-route-link>
           </wu-menu-item>
-          <wu-menu-item theme="success">
-            <a href="#">
-              <i class="material-icons">star_rate</i>
-              Success
-            </a>
+          <wu-menu-item>
+            <stencil-route-link url={'/theming/css-vars'}>CSS Variables</stencil-route-link>
           </wu-menu-item>
-          <wu-menu-item theme="warning">
-            <a href="#">
-              <i class="material-icons">star_rate</i>
-              Warning
-            </a>
-          </wu-menu-item>
-          <wu-menu-item theme="danger">
-            <a href="#">
-              <i class="material-icons">star_rate</i>
-              Danger
-            </a>
-          </wu-menu-item>
-          <wu-menu-item theme="info">
-            <a href="#">
-              <i class="material-icons">star_rate</i>
-              Info
-            </a>
-          </wu-menu-item>
-          <wu-menu-item theme="dark">
-            <a href="#">
-              <i class="material-icons">star_rate</i>
-              Dark
-            </a>
-          </wu-menu-item>
-          <wu-menu-item theme="grey">
-            <a href="#">
-              <i class="material-icons">star_rate</i>
-              Grey
-            </a>
+          <wu-menu-item>
+            <stencil-route-link url={'/theming/util-classes'}>Utility classes</stencil-route-link>
           </wu-menu-item>
         </wu-menu-list>
       </wu-drawer-menu>
