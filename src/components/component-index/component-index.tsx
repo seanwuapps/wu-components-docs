@@ -8,7 +8,7 @@ export class ComponentIndex {
   render() {
     return (
       <wu-page reflect-fixed-header class="component-index-page">
-        <wu-row gap="5%">
+        <wu-row auto-mobile fill-height>
           {components.map(component => {
             return (
               <wu-col>

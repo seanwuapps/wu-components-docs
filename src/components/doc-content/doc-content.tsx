@@ -1,12 +1,14 @@
 import { Component, Prop, Watch, State } from '@stencil/core'
 
 @Component({
-  tag: 'component-content',
-  styleUrl: 'component-content.scss'
+  tag: 'doc-content',
+  styleUrl: 'doc-content.scss'
 })
-export class ComponentContent {
+export class DocContent {
   @Prop()
   name: string
+  @Prop()
+  type?: 'components' | 'pages'
   @State()
   isLoading: boolean = true
 
@@ -26,13 +28,12 @@ export class ComponentContent {
   @Watch('name')
   fetchContent() {
     this.startLoading()
-    return fetch(`/doc-content/${this.name}.html`)
+    return fetch(`/doc-content${this.type ? '/' + this.type : ''}/${this.name}.html`)
       .then(res => {
         if (res.ok) {
           return res.text()
         }
         if (res.status === 404) {
-          console.log(404)
           throw new Error('Page not found. :(')
         }
         throw new Error('Something went wrong.')

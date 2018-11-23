@@ -33,7 +33,7 @@ export class DocsMenu {
           {components.map(component => {
             return (
               <wu-menu-item theme="secondary">
-                <stencil-route-link url={'/component/' + component.key}>
+                <stencil-route-link url={'/components/' + component.key}>
                   {component.name} &lt;
                   {component.key}
                   &gt;
@@ -49,10 +49,10 @@ export class DocsMenu {
             <stencil-route-link url={'/theming/themes'}>Themes</stencil-route-link>
           </wu-menu-item>
           <wu-menu-item>
-            <stencil-route-link url={'/theming/css-vars'}>CSS Variables</stencil-route-link>
+            <stencil-route-link url={'/theming/css-variables'}>CSS Variables</stencil-route-link>
           </wu-menu-item>
           <wu-menu-item>
-            <stencil-route-link url={'/theming/util-classes'}>Utility classes</stencil-route-link>
+            <stencil-route-link url={'/theming/utility-classes'}>Utility classes</stencil-route-link>
           </wu-menu-item>
         </wu-menu-list>
       </wu-drawer-menu>

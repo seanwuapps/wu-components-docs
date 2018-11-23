@@ -30,9 +30,11 @@ export class ComponentPage {
   render() {
     return this.loadedComponent ? (
       <wu-page reflect-fixed-header>
-        <h2>{this.loadedComponent.name}</h2>
-        <p>{this.loadedComponent.description ? this.loadedComponent.description : null}</p>
-        <component-content name={this.loadedComponent.key} />
+        <wu-container>
+          <h2>{this.loadedComponent.name}</h2>
+          <p>{this.loadedComponent.description ? this.loadedComponent.description : null}</p>
+          <doc-content type="components" name={this.loadedComponent.key} />
+        </wu-container>
       </wu-page>
     ) : (
       <p>Component cannot be loaded.</p>

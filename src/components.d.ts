@@ -28,13 +28,6 @@ export namespace Components {
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
 
-  interface ComponentContent {
-    'name': string;
-  }
-  interface ComponentContentAttributes extends StencilHTMLAttributes {
-    'name'?: string;
-  }
-
   interface ComponentIndex {}
   interface ComponentIndexAttributes extends StencilHTMLAttributes {}
 
@@ -45,8 +38,40 @@ export namespace Components {
     'match'?: MatchResults;
   }
 
+  interface CssVarSandbox {
+    'code': string;
+    'vars': string;
+  }
+  interface CssVarSandboxAttributes extends StencilHTMLAttributes {
+    'code'?: string;
+    'vars'?: string;
+  }
+
+  interface DocContent {
+    'name': string;
+    'type': 'components' | 'pages';
+  }
+  interface DocContentAttributes extends StencilHTMLAttributes {
+    'name'?: string;
+    'type'?: 'components' | 'pages';
+  }
+
   interface DocsMenu {}
   interface DocsMenuAttributes extends StencilHTMLAttributes {}
+
+  interface DocsPage {
+    'match': MatchResults;
+  }
+  interface DocsPageAttributes extends StencilHTMLAttributes {
+    'match'?: MatchResults;
+  }
+
+  interface VarsEditor {
+    'vars': any;
+  }
+  interface VarsEditorAttributes extends StencilHTMLAttributes {
+    'vars'?: any;
+  }
 }
 
 declare global {
@@ -54,20 +79,26 @@ declare global {
     'AppHome': Components.AppHome;
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
-    'ComponentContent': Components.ComponentContent;
     'ComponentIndex': Components.ComponentIndex;
     'ComponentPage': Components.ComponentPage;
+    'CssVarSandbox': Components.CssVarSandbox;
+    'DocContent': Components.DocContent;
     'DocsMenu': Components.DocsMenu;
+    'DocsPage': Components.DocsPage;
+    'VarsEditor': Components.VarsEditor;
   }
 
   interface StencilIntrinsicElements {
     'app-home': Components.AppHomeAttributes;
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
-    'component-content': Components.ComponentContentAttributes;
     'component-index': Components.ComponentIndexAttributes;
     'component-page': Components.ComponentPageAttributes;
+    'css-var-sandbox': Components.CssVarSandboxAttributes;
+    'doc-content': Components.DocContentAttributes;
     'docs-menu': Components.DocsMenuAttributes;
+    'docs-page': Components.DocsPageAttributes;
+    'vars-editor': Components.VarsEditorAttributes;
   }
 
 
@@ -89,12 +120,6 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
-  interface HTMLComponentContentElement extends Components.ComponentContent, HTMLStencilElement {}
-  var HTMLComponentContentElement: {
-    prototype: HTMLComponentContentElement;
-    new (): HTMLComponentContentElement;
-  };
-
   interface HTMLComponentIndexElement extends Components.ComponentIndex, HTMLStencilElement {}
   var HTMLComponentIndexElement: {
     prototype: HTMLComponentIndexElement;
@@ -107,30 +132,60 @@ declare global {
     new (): HTMLComponentPageElement;
   };
 
+  interface HTMLCssVarSandboxElement extends Components.CssVarSandbox, HTMLStencilElement {}
+  var HTMLCssVarSandboxElement: {
+    prototype: HTMLCssVarSandboxElement;
+    new (): HTMLCssVarSandboxElement;
+  };
+
+  interface HTMLDocContentElement extends Components.DocContent, HTMLStencilElement {}
+  var HTMLDocContentElement: {
+    prototype: HTMLDocContentElement;
+    new (): HTMLDocContentElement;
+  };
+
   interface HTMLDocsMenuElement extends Components.DocsMenu, HTMLStencilElement {}
   var HTMLDocsMenuElement: {
     prototype: HTMLDocsMenuElement;
     new (): HTMLDocsMenuElement;
   };
 
+  interface HTMLDocsPageElement extends Components.DocsPage, HTMLStencilElement {}
+  var HTMLDocsPageElement: {
+    prototype: HTMLDocsPageElement;
+    new (): HTMLDocsPageElement;
+  };
+
+  interface HTMLVarsEditorElement extends Components.VarsEditor, HTMLStencilElement {}
+  var HTMLVarsEditorElement: {
+    prototype: HTMLVarsEditorElement;
+    new (): HTMLVarsEditorElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
-    'component-content': HTMLComponentContentElement
     'component-index': HTMLComponentIndexElement
     'component-page': HTMLComponentPageElement
+    'css-var-sandbox': HTMLCssVarSandboxElement
+    'doc-content': HTMLDocContentElement
     'docs-menu': HTMLDocsMenuElement
+    'docs-page': HTMLDocsPageElement
+    'vars-editor': HTMLVarsEditorElement
   }
 
   interface ElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
-    'component-content': HTMLComponentContentElement;
     'component-index': HTMLComponentIndexElement;
     'component-page': HTMLComponentPageElement;
+    'css-var-sandbox': HTMLCssVarSandboxElement;
+    'doc-content': HTMLDocContentElement;
     'docs-menu': HTMLDocsMenuElement;
+    'docs-page': HTMLDocsPageElement;
+    'vars-editor': HTMLVarsEditorElement;
   }
 
 
