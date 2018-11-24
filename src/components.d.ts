@@ -65,13 +65,6 @@ export namespace Components {
   interface DocsPageAttributes extends StencilHTMLAttributes {
     'match'?: MatchResults;
   }
-
-  interface VarsEditor {
-    'vars': any;
-  }
-  interface VarsEditorAttributes extends StencilHTMLAttributes {
-    'vars'?: any;
-  }
 }
 
 declare global {
@@ -85,7 +78,6 @@ declare global {
     'DocContent': Components.DocContent;
     'DocsMenu': Components.DocsMenu;
     'DocsPage': Components.DocsPage;
-    'VarsEditor': Components.VarsEditor;
   }
 
   interface StencilIntrinsicElements {
@@ -98,7 +90,6 @@ declare global {
     'doc-content': Components.DocContentAttributes;
     'docs-menu': Components.DocsMenuAttributes;
     'docs-page': Components.DocsPageAttributes;
-    'vars-editor': Components.VarsEditorAttributes;
   }
 
 
@@ -156,12 +147,6 @@ declare global {
     new (): HTMLDocsPageElement;
   };
 
-  interface HTMLVarsEditorElement extends Components.VarsEditor, HTMLStencilElement {}
-  var HTMLVarsEditorElement: {
-    prototype: HTMLVarsEditorElement;
-    new (): HTMLVarsEditorElement;
-  };
-
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement
     'app-profile': HTMLAppProfileElement
@@ -172,7 +157,6 @@ declare global {
     'doc-content': HTMLDocContentElement
     'docs-menu': HTMLDocsMenuElement
     'docs-page': HTMLDocsPageElement
-    'vars-editor': HTMLVarsEditorElement
   }
 
   interface ElementTagNameMap {
@@ -185,7 +169,6 @@ declare global {
     'doc-content': HTMLDocContentElement;
     'docs-menu': HTMLDocsMenuElement;
     'docs-page': HTMLDocsPageElement;
-    'vars-editor': HTMLVarsEditorElement;
   }
 
 

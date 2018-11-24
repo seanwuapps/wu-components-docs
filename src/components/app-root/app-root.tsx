@@ -11,7 +11,7 @@ export class AppRoot {
         <script async defer src="https://buttons.github.io/buttons.js" />
         <wu-header fixed={true} theme="primary">
           <wu-container fluid>
-            <wu-row auto-mobile={false} class="f-align-center">
+            <wu-row auto-mobile="false" class="f-align-center">
               <wu-col class="text-left">
                 <wu-burger animation="rotate" target="#menu" />
               </wu-col>
