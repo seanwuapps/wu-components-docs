@@ -1,0 +1,9 @@
+textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 14px 0;
+  border-color: rgba(0, 0, 0, 0.1);
+  &[readonly] {
+    border-radius: var(--wu-code-block-border-radius);
+  }
+}

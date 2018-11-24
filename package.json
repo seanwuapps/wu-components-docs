@@ -17,8 +17,12 @@
     "material-icons": "^0.2.3"
   },
   "devDependencies": {
+    "@stencil/postcss": "^0.1.0",
+    "@types/autoprefixer": "^9.1.1",
     "@types/jest": "^23.3.2",
-    "jest": "^23.6.0"
+    "autoprefixer": "^9.3.1",
+    "jest": "^23.6.0",
+    "postcss-pxtorem": "^4.0.1"
   },
   "repository": {
     "type": "git",

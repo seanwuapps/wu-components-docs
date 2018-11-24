@@ -22,6 +22,9 @@ export class CssVarSandbox {
   toCssString(styles) {
     let str = ':root {\n'
     Object.keys(styles).map(key => {
+      if (key === 'elm') {
+        return
+      }
       const value = styles[key]
       str += `  ${key}: ${value};\n`
     })
@@ -30,37 +33,51 @@ export class CssVarSandbox {
   }
 
   updateVar(key, e) {
+    console.log(e)
     let styles = { ...this.variableList }
     styles[key] = e.target.value
+
+    console.log(styles)
     this.variableList = styles
+    this.css = this.toCssString(styles)
+    console.log(this.css)
   }
 
   render() {
     return (
       <div>
         <h2>CSS Variables</h2>
-        <div>
-          {Object.keys(this.variableList).map(key => {
-            if (key === 'elm') {
-              return
-            }
-            const value = this.variableList[key]
-            return (
-              <wu-row>
-                <wu-col />
-                <wu-col>
-                  <label htmlFor={key}>{key}</label>
-                </wu-col>
-                <wu-col>
-                  <input type="text" id={key} value={value} onInput={e => this.updateVar(key, e)} />
-                </wu-col>
-                <wu-col />
-              </wu-row>
-            )
-          })}
-        </div>
-        <h3>CSS Code</h3>
-        <code-block language="css" code={this.css} />
+        <wu-row>
+          <wu-col portion="2">
+            <div>
+              {this.variableList}
+              {Object.keys(this.variableList).map(key => {
+                if (key === 'elm') {
+                  return
+                }
+                const value = this.variableList[key]
+                return (
+                  <wu-row>
+                    <wu-col>
+                      <label htmlFor={key}>{key}</label>
+                    </wu-col>
+                    <wu-col>
+                      <input type="text" id={key} value={value} onInput={e => this.updateVar(key, e)} />
+                    </wu-col>
+                  </wu-row>
+                )
+              })}
+            </div>
+          </wu-col>
+          <wu-col portion="3">
+            <wu-row>
+              <wu-col>
+                <textarea readonly={true}>{this.css}</textarea>
+              </wu-col>
+            </wu-row>
+          </wu-col>
+        </wu-row>
+
         <h3>Preview</h3>
         <div innerHTML={this.code} style={this.variableList} />
       </div>
