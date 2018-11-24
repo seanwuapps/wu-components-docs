@@ -13,17 +13,26 @@ export class CssVarSandbox {
   variableList: any
 
   @State()
-  css: string
+  css: string = ''
   componentWillLoad() {
     this.variableList = JSON.parse(this.vars)
-    this.css = ':root' + this.vars.replace('"', '')
+    this.css = this.toCssString(this.variableList)
+  }
+
+  toCssString(styles) {
+    let str = ':root {\n'
+    Object.keys(styles).map(key => {
+      const value = styles[key]
+      str += `  ${key}: ${value};\n`
+    })
+    str += '}'
+    return str
   }
 
   updateVar(key, e) {
     let styles = { ...this.variableList }
     styles[key] = e.target.value
     this.variableList = styles
-    this.css = ':root' + this.variableList.replace('"', '')
   }
 
   render() {
@@ -51,7 +60,7 @@ export class CssVarSandbox {
           })}
         </div>
         <h3>CSS Code</h3>
-        <code-block code={this.css} />
+        <code-block language="css" code={this.css} />
         <h3>Preview</h3>
         <div innerHTML={this.code} style={this.variableList} />
       </div>

@@ -13,6 +13,7 @@
     "@stencil/core": "^0.12.4",
     "@stencil/router": "^0.2.6",
     "@stencil/sass": "^0.1.1",
+    "highlight.js": "^9.13.1",
     "material-icons": "^0.2.3"
   },
   "devDependencies": {

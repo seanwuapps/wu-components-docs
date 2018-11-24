@@ -28,6 +28,17 @@ export namespace Components {
   interface AppRoot {}
   interface AppRootAttributes extends StencilHTMLAttributes {}
 
+  interface CodeBlock {
+    'code': string;
+    'language': string;
+    'options': any;
+  }
+  interface CodeBlockAttributes extends StencilHTMLAttributes {
+    'code'?: string;
+    'language'?: string;
+    'options'?: any;
+  }
+
   interface ComponentIndex {}
   interface ComponentIndexAttributes extends StencilHTMLAttributes {}
 
@@ -72,6 +83,7 @@ declare global {
     'AppHome': Components.AppHome;
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
+    'CodeBlock': Components.CodeBlock;
     'ComponentIndex': Components.ComponentIndex;
     'ComponentPage': Components.ComponentPage;
     'CssVarSandbox': Components.CssVarSandbox;
@@ -84,6 +96,7 @@ declare global {
     'app-home': Components.AppHomeAttributes;
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
+    'code-block': Components.CodeBlockAttributes;
     'component-index': Components.ComponentIndexAttributes;
     'component-page': Components.ComponentPageAttributes;
     'css-var-sandbox': Components.CssVarSandboxAttributes;
@@ -109,6 +122,12 @@ declare global {
   var HTMLAppRootElement: {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
+  };
+
+  interface HTMLCodeBlockElement extends Components.CodeBlock, HTMLStencilElement {}
+  var HTMLCodeBlockElement: {
+    prototype: HTMLCodeBlockElement;
+    new (): HTMLCodeBlockElement;
   };
 
   interface HTMLComponentIndexElement extends Components.ComponentIndex, HTMLStencilElement {}
@@ -151,6 +170,7 @@ declare global {
     'app-home': HTMLAppHomeElement
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
+    'code-block': HTMLCodeBlockElement
     'component-index': HTMLComponentIndexElement
     'component-page': HTMLComponentPageElement
     'css-var-sandbox': HTMLCssVarSandboxElement
@@ -163,6 +183,7 @@ declare global {
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'code-block': HTMLCodeBlockElement;
     'component-index': HTMLComponentIndexElement;
     'component-page': HTMLComponentPageElement;
     'css-var-sandbox': HTMLCssVarSandboxElement;
