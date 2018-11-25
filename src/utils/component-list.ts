@@ -3,6 +3,7 @@ interface ComponentEntry {
   name: string
   description?: string
   keywords?: Array<string>
+  tags?: Array<string>
 }
 
 export const getComponent = key => {
@@ -37,6 +38,7 @@ export const components: Array<ComponentEntry> = [
   {
     key: 'wu-grid',
     name: 'Grid system',
-    description: 'A flexbox-based grid system with unlimited columns and rows'
+    description: 'A flexbox-based grid system with unlimited columns and rows',
+    tags: ['wu-container', 'wu-row', 'wu-col']
   }
 ]
