@@ -28,6 +28,9 @@ export class DocContent {
   @Watch('name')
   fetchContent() {
     this.startLoading()
+    if (!this.name) {
+      return
+    }
     return fetch(`/doc-content${this.type ? '/' + this.type : ''}/${this.name}.html`)
       .then(res => {
         if (res.ok) {

@@ -11,14 +11,14 @@ export class AppRoot {
         <script async defer src="https://buttons.github.io/buttons.js" />
         <wu-header fixed={true} theme="primary">
           <wu-container fluid>
-            <wu-row class="f-align-center">
+            <wu-row fill-height class="f-align-center">
               <wu-col class="text-left">
                 <wu-burger animation="rotate" target="#menu" />
               </wu-col>
               <wu-col class="text-center">
-                <h1>
-                  <stencil-route-link url="/">Wu Components</stencil-route-link>
-                </h1>
+                <stencil-route-link url="/" class="site-title">
+                  Wu Components
+                </stencil-route-link>
               </wu-col>
               <wu-col class="text-right">
                 <a

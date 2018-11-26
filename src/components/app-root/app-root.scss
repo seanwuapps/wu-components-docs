@@ -1,8 +1,16 @@
 wu-header {
-  h1 {
+  wu-container {
+    height: 100%;
+  }
+  .site-title {
     a {
       color: currentColor;
       text-decoration: none;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: bold;
+      font-size: 20px;
+      display: block;
+      padding: 5px 0;
     }
   }
 }

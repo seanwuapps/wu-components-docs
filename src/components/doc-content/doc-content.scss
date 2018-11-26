@@ -11,3 +11,15 @@
     opacity: 1;
   }
 }
+
+.grid-docs {
+  wu-col {
+    background: var(--color-primary);
+    color: var(--color-primary-contrast);
+    border-radius: 5px;
+    wu-col {
+      background: var(--color-success);
+      color: var(--color-success-contrast);
+    }
+  }
+}
