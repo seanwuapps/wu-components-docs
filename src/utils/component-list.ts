@@ -40,5 +40,10 @@ export const components: Array<ComponentEntry> = [
     name: 'Grid system',
     description: 'A flexbox-based grid system with unlimited columns and rows',
     tags: ['wu-container', 'wu-row', 'wu-col']
+  },
+  {
+    key: 'wu-card',
+    name: 'Card',
+    description: 'Card layout'
   }
 ]

@@ -14,15 +14,18 @@ export class ComponentIndex {
               return (
                 <wu-col>
                   <wu-card hover="hover" card-title={component.name}>
-                    <code>&lt;{component.key}&gt;</code>
-                    <br />
+                    {component.tags ? (
+                      component.tags.map(tag => (
+                        <div>
+                          <code>&lt;{tag}&gt;</code>
+                        </div>
+                      ))
+                    ) : (
+                      <code>&lt;{component.key}&gt;</code>
+                    )}
                     <p>{component.description ? component.description : 'No description.'}</p>
-                    <div class="text-right" slot="footer">
-                      <stencil-route-link url={'/components/' + component.key}>
-                        <wu-button outline flat theme="primary">
-                          Details
-                        </wu-button>
-                      </stencil-route-link>
+                    <div slot="footer">
+                      <stencil-route-link url={'/components/' + component.key}>Details</stencil-route-link>
                     </div>
                   </wu-card>
                 </wu-col>

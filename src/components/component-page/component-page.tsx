@@ -31,8 +31,6 @@ export class ComponentPage {
     return this.loadedComponent ? (
       <wu-page reflect-fixed-header>
         <wu-container>
-          <h2>{this.loadedComponent.name}</h2>
-          <p>{this.loadedComponent.description ? this.loadedComponent.description : null}</p>
           <doc-content type="components" name={this.loadedComponent.key} />
         </wu-container>
       </wu-page>
