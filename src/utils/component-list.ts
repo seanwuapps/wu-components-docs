@@ -45,5 +45,10 @@ export const components: Array<ComponentEntry> = [
     key: 'wu-card',
     name: 'Card',
     description: 'Card layout'
+  },
+  {
+    key: 'wu-parallax',
+    name: 'Parallax',
+    description: 'A web component that gives you parallax effect'
   }
 ]
