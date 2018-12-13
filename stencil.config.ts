@@ -29,7 +29,7 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'www',
-      dir: '../wu-components/docs'
+      dir: 'www'
     }
   ]
 }

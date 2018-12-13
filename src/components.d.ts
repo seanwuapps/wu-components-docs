@@ -76,6 +76,12 @@ export namespace Components {
   interface DocsPageAttributes extends StencilHTMLAttributes {
     'match'?: MatchResults;
   }
+
+  interface GettingStarted {}
+  interface GettingStartedAttributes extends StencilHTMLAttributes {}
+
+  interface NotFoundPage {}
+  interface NotFoundPageAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
@@ -90,6 +96,8 @@ declare global {
     'DocContent': Components.DocContent;
     'DocsMenu': Components.DocsMenu;
     'DocsPage': Components.DocsPage;
+    'GettingStarted': Components.GettingStarted;
+    'NotFoundPage': Components.NotFoundPage;
   }
 
   interface StencilIntrinsicElements {
@@ -103,6 +111,8 @@ declare global {
     'doc-content': Components.DocContentAttributes;
     'docs-menu': Components.DocsMenuAttributes;
     'docs-page': Components.DocsPageAttributes;
+    'getting-started': Components.GettingStartedAttributes;
+    'not-found-page': Components.NotFoundPageAttributes;
   }
 
 
@@ -166,6 +176,18 @@ declare global {
     new (): HTMLDocsPageElement;
   };
 
+  interface HTMLGettingStartedElement extends Components.GettingStarted, HTMLStencilElement {}
+  var HTMLGettingStartedElement: {
+    prototype: HTMLGettingStartedElement;
+    new (): HTMLGettingStartedElement;
+  };
+
+  interface HTMLNotFoundPageElement extends Components.NotFoundPage, HTMLStencilElement {}
+  var HTMLNotFoundPageElement: {
+    prototype: HTMLNotFoundPageElement;
+    new (): HTMLNotFoundPageElement;
+  };
+
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement
     'app-profile': HTMLAppProfileElement
@@ -177,6 +199,8 @@ declare global {
     'doc-content': HTMLDocContentElement
     'docs-menu': HTMLDocsMenuElement
     'docs-page': HTMLDocsPageElement
+    'getting-started': HTMLGettingStartedElement
+    'not-found-page': HTMLNotFoundPageElement
   }
 
   interface ElementTagNameMap {
@@ -190,6 +214,8 @@ declare global {
     'doc-content': HTMLDocContentElement;
     'docs-menu': HTMLDocsMenuElement;
     'docs-page': HTMLDocsPageElement;
+    'getting-started': HTMLGettingStartedElement;
+    'not-found-page': HTMLNotFoundPageElement;
   }
 
 

@@ -40,10 +40,11 @@ export class AppRoot {
           <stencil-router>
             <stencil-route-switch scrollTopOffset={0}>
               <stencil-route url="/" component="app-home" exact={true} />
-              {/* <stencil-route url="/getting-started" component="" /> */}
+              <stencil-route url="/getting-started" component="getting-started" />
               <stencil-route url="/components" component="component-index" exact={true} />
               <stencil-route url="/components/:name" component="component-page" />
               <stencil-route url="/:category/:pageName" component="docs-page" />
+              <stencil-route component="not-found-page" />
             </stencil-route-switch>
           </stencil-router>
         </main>
